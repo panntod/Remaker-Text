@@ -75,6 +75,8 @@ function angkaToKata(angka) {
     return "nol";
   } else if (angka < 10) {
     return kataSatuan[angka];
+  } else if(angka == 10) {
+    return kataPuluhan[1]
   } else if (angka < 20) {
     return kataBelasan[angka - 10];
   } else if (angka < 100) {
@@ -98,7 +100,7 @@ function angkaToKata(angka) {
       return `${kataSatuan[ribuan]} ribu ${angkaToKata(sisaRibuan)}`.trim();
     }
   } else {
-    return "";
+    return angka;
   }
 }
 function jamToKata(jam) {
@@ -131,7 +133,6 @@ function prosesTeks(teks) {
     .replace(/-/g, " ")
     .replace(/\+/g, " plus")
     .replace(/=/g, " sama dengan")
-    .replace(/\*/, " bintang")
     .replace(/\;/g, "")
     .replace(/\//g, "")
     .replace(/\#/g, " shard")
