@@ -75,8 +75,8 @@ function angkaToKata(angka) {
     return "nol";
   } else if (angka < 10) {
     return kataSatuan[angka];
-  } else if(angka == 10) {
-    return kataPuluhan[1]
+  } else if (angka == 10) {
+    return kataPuluhan[1];
   } else if (angka < 20) {
     return kataBelasan[angka - 10];
   } else if (angka < 100) {
@@ -103,6 +103,7 @@ function angkaToKata(angka) {
     return angka;
   }
 }
+
 function jamToKata(jam) {
   let [jamStr, menitStr] = jam.split(/[:.]/);
   let jamAngka = parseInt(jamStr);
@@ -143,6 +144,7 @@ function prosesTeks(teks) {
 
   return teks;
 }
+
 document
   .getElementById("remakerForm")
   .addEventListener("submit", function (event) {
@@ -158,4 +160,18 @@ document
 
     // Menampilkan hasil pada elemen
     teksHasilElement.innerHTML = teksHasilDiproses;
+
+    document
+      .getElementById("copyButton")
+      .addEventListener("click", function () {
+        navigator.clipboard
+          .writeText(teksHasilDiproses)
+          .then(() => {
+            alert("Teks berhasil disalin!");
+          })
+          .catch((err) => {
+            console.error("Gagal menyalin teks: ", err);
+            alert("Gagal menyalin teks");
+          });
+      });
   });
