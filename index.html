@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remaker Text</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <title>Remaker Text</title>
 </head>
 <body>
-    
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h1 class="text-center">Remaker Text</h1>
+        <hr>
+
+        <!-- Formulir untuk input teks awal -->
+        <form id="remakerForm">
+          <div class="mb-3">
+            <h5 for="teksAwal" class="mb-3">Masukkan Teks Awal:</h5>
+            <textarea class="form-control" id="teksAwal" rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Proses</button>
+        </form>
+
+        <div class="card mt-3">
+          <div class="card-body">
+            <h5 class="card-title">Teks Hasil</h5>
+            <pre id="teksHasil"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
