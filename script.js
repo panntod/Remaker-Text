@@ -46,25 +46,17 @@ function angkaToKata(angka) {
         return `${kataSatuan[ribuan]} ribu ${angkaToKata(sisaRibuan)}`.trim();
       }
     } else {
-      // Menangani angka lebih dari 9999, sesuaikan jika diperlukan
       return "angka terlalu besar";
     }
   }
   
   function prosesTeks(teks) {
-    teks = teks.replace(/,/g, '').replace(/-/g, ' ').replace(/\+/g, ' plus').replace(/=/g, ' sama dengan').replace(/\*/, ' bintang').replace(/;/, ' ');
+    teks = teks.replace(/,/g, '').replace(/-/g, ' ').replace(/\+/g, ' plus').replace(/=/g, ' sama dengan').replace(/\*/, ' bintang').replace(/;/g, '').replace(/\//g, '');
   
     return teks;
   }
   
-  let teksAwal = `C++ adalah bahasa pemrograman komputer yang dibuat oleh Bjarne Stroustrup, yang merupakan perkembangan dari bahasa C dikembangkan di Bell Labs. Pada awal tahun 1970-an, bahasa itu merupakan peningkatan dari bahasa sebelumnya, yaitu B. Wikipedia
-  Didesain oleh: Bjarne Stroustrup
-  Terpengaruh: Ada, C Sharp, C99, Chapel, Clojure
-  Ekstensi nama berkas: C,.cc,.cpp,.cxx,.c++,.h,.H,.hh,.hpp,.hxx,.h++
-  Keluarga: C
-  OS: lintas platform
-  pengembang: ISO/IEC JTC 1 (Joint Technical Committee 1) / SC 22 (Subcommittee 22) / WG 21 (Working Group 21)
-  Rilis perdana: 1985; 38 tahun lalu`
+  let teksAwal = ``
   
   let teksHasil = prosesTeks(teksAwal);
   let teksHasilDiproses = remakeTeksDenganFormatTahun(teksHasil);
