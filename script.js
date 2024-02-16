@@ -56,9 +56,14 @@ function angkaToKata(angka) {
     return teks;
   }
   
-  let teksAwal = ``
+  document.getElementById('remakerForm').addEventListener('submit', function (event) {
+    event.preventDefault();
   
-  let teksHasil = prosesTeks(teksAwal);
-  let teksHasilDiproses = remakeTeksDenganFormatTahun(teksHasil);
+    // Mengambil teks awal dari textarea
+    let teksAwal = document.getElementById('teksAwal').value;
   
-  console.log(teksHasilDiproses);
+    // Memproses teks dan menampilkan hasil
+    let teksHasil = prosesTeks(teksAwal);
+    let teksHasilDiproses = remakeTeksDenganFormatTahun(teksHasil);
+    document.getElementById('teksHasil').textContent = teksHasilDiproses;
+  });
