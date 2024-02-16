@@ -145,6 +145,7 @@ function prosesTeks(teks) {
   return teks;
 }
 
+let teksHasilDiproses;
 document
   .getElementById("remakerForm")
   .addEventListener("submit", function (event) {
@@ -155,23 +156,22 @@ document
 
     // Memproses teks dan menampilkan hasil
     let teksHasil = prosesTeks(teksAwal);
-    let teksHasilDiproses = remakeTeksDenganFormatTahun(teksHasil);
+    teksHasilDiproses = remakeTeksDenganFormatTahun(teksHasil);
     let teksHasilElement = document.getElementById("teksHasil");
 
     // Menampilkan hasil pada elemen
-    teksHasilElement.innerHTML = teksHasilDiproses;
-
-    document
-      .getElementById("copyButton")
-      .addEventListener("click", function () {
-        navigator.clipboard
-          .writeText(teksHasilDiproses)
-          .then(() => {
-            alert("Teks berhasil disalin!");
-          })
-          .catch((err) => {
-            console.error("Gagal menyalin teks: ", err);
-            alert("Gagal menyalin teks");
-          });
-      });
+    teksHasilElement.textContent = teksHasilDiproses; // Menggunakan textContent untuk menghindari potensi XSS
   });
+
+document.getElementById("copyButton").addEventListener("click", function () {
+
+  navigator.clipboard
+    .writeText(teksHasilDiproses)
+    .then(() => {
+      alert("Teks berhasil disalin!");
+    })
+    .catch((err) => {
+      console.error("Gagal menyalin teks: ", err);
+      alert("Gagal menyalin teks");
+    });
+});
