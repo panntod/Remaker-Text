@@ -1,13 +1,21 @@
 function remakeTeksDenganFormatTahun(teks) {
-  let tahunAngka = teks.match(/\b\d+\b/g);
-
-  if (tahunAngka) {
-    tahunAngka.forEach((tahun) => {
-      let kataTahun = angkaToKata(tahun);
-      teks = teks.replace(new RegExp(tahun, "g"), kataTahun);
-    });
-  }
-
+    let jamFormat = teks.match(/\b\d{1,2}:\d{2}\b/g);
+  
+    if (jamFormat) {
+      jamFormat.forEach((jam) => {
+        let kataJam = jamToKata(jam);
+        teks = teks.replace(new RegExp(jam, "g"), kataJam);
+      });
+    }
+    
+    let tahunAngka = teks.match(/\b\d+\b/g);
+    
+    if (tahunAngka) {
+      tahunAngka.forEach((tahun) => {
+        let kataTahun = angkaToKata(tahun);
+        teks = teks.replace(new RegExp(tahun, "g"), kataTahun);
+      });
+    }
   return teks;
 }
 
@@ -93,6 +101,30 @@ function angkaToKata(angka) {
     return "angka terlalu besar";
   }
 }
+function jamToKata(jam) {
+    let [jamStr, menitStr] = jam.split(":");
+    let jamAngka = parseInt(jamStr);
+    let menitAngka = parseInt(menitStr);
+  
+    // Logika untuk mengonversi jam menjadi kata
+    let kataJam;
+    if (jamAngka > 12) {
+      kataJam = angkaToKata(jamAngka - 12);
+    } else {
+      kataJam = angkaToKata(jamAngka);
+    }
+  
+    // Logika untuk mengonversi menit
+    let kataMenit = angkaToKata(menitAngka);
+  
+    // Menggabungkan dan mengembalikan hasil
+    if(kataMenit == "nol"){
+        return `${kataJam}`;
+    }
+
+    return `${kataJam} ${kataMenit}`;
+  }
+  
 
 function prosesTeks(teks) {
   teks = teks
@@ -101,9 +133,13 @@ function prosesTeks(teks) {
     .replace(/\+/g, " plus")
     .replace(/=/g, " sama dengan")
     .replace(/\*/, " bintang")
-    .replace(/;/g, "")
+    .replace(/\;/g, "")
     .replace(/\//g, "")
-    .replace(/\#/g, ' shard')
+    .replace(/\#/g, " shard")
+    .replace(/\'/g, "")
+    .replace(/\"/g, "")
+    .replace(/\(/g, "")
+    .replace(/\)/g, "");
 
   return teks;
 }
