@@ -164,6 +164,11 @@ document
   });
 
 document.getElementById("copyButton").addEventListener("click", function () {
+  if (!teksHasilDiproses) {
+    console.error("Tidak ada teks yang dapat disalin.");
+    alert("Tidak ada teks yang dapat disalin");
+    return;
+  }
 
   navigator.clipboard
     .writeText(teksHasilDiproses)
