@@ -82,7 +82,11 @@ function angkaToKata(angka) {
   } else if (angka < 100) {
     let puluhan = Math.floor(angka / 10);
     let satuan = angka % 10;
-    return `${kataPuluhan[puluhan]} ${kataSatuan[satuan]}`.trim();
+    if(satuan === 0){
+      return `${kataPuluhan[puluhan]}`.trim();
+    } else {
+      return `${kataPuluhan[puluhan]} ${kataSatuan[satuan]}`.trim();
+    }
   } else if (angka < 1000) {
     let ratusan = Math.floor(angka / 100);
     let sisaRatusan = angka % 100;
