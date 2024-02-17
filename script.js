@@ -68,6 +68,7 @@ function angkaToKata(angka) {
     "delapan ratus",
     "sembilan ratus",
   ];
+  const kataRibuan = ["", "seribu"];
 
   angka = parseInt(angka);
 
@@ -82,7 +83,7 @@ function angkaToKata(angka) {
   } else if (angka < 100) {
     let puluhan = Math.floor(angka / 10);
     let satuan = angka % 10;
-    if(satuan === 0){
+    if (satuan === 0) {
       return `${kataPuluhan[puluhan]}`.trim();
     } else {
       return `${kataPuluhan[puluhan]} ${kataSatuan[satuan]}`.trim();
@@ -98,6 +99,14 @@ function angkaToKata(angka) {
   } else if (angka < 10000) {
     let ribuan = Math.floor(angka / 1000);
     let sisaRibuan = angka % 1000;
+    if (ribuan === 1) {
+      if (sisaRibuan === 0) {
+        return `${kataRibuan[ribuan]}`.trim();
+      } else {
+        return `${kataRibuan[ribuan]} ${angkaToKata(sisaRibuan)}`.trim();
+      }
+    }
+
     if (sisaRibuan === 0) {
       return `${kataSatuan[ribuan]} ribu`.trim();
     } else {
@@ -148,7 +157,7 @@ function prosesTeks(teks) {
     .replace(/\(/g, "")
     .replace(/\)/g, "")
     .replace(/\?/g, "")
-    .replace(/\!/g, "")
+    .replace(/\!/g, "");
 
   return teks;
 }
