@@ -1,4 +1,4 @@
-function remakeTeksDenganFormatTahun(teks) {
+function remakeTeksDenganFormat(teks) {
   let jamFormat = teks.match(/\b\d{1,2}[:.]\d{2}\b/g);
 
   if (jamFormat) {
@@ -8,12 +8,12 @@ function remakeTeksDenganFormatTahun(teks) {
     });
   }
 
-  let tahunAngka = teks.match(/\b\d+\b/g);
+  let kataAngka = teks.match(/\b\d+\b/g);
 
-  if (tahunAngka) {
-    tahunAngka.forEach((tahun) => {
-      let kataTahun = angkaToKata(tahun);
-      teks = teks.replace(new RegExp(tahun, "g"), kataTahun);
+  if (kataAngka) {
+    kataAngka.forEach((angka) => {
+      let kataAngka = angkaToKata(angka);
+      teks = teks.replace(new RegExp(angka, "g"), kataAngka);
     });
   }
   return teks;
@@ -177,7 +177,7 @@ document
 
     // Memproses teks dan menampilkan hasil
     let teksHasil = prosesTeks(teksAwal);
-    teksHasilDiproses = remakeTeksDenganFormatTahun(teksHasil);
+    teksHasilDiproses = remakeTeksDenganFormat(teksHasil);
     let teksHasilElement = document.getElementById("teksHasil");
 
     // Menampilkan hasil pada elemen
