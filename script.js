@@ -1,24 +1,3 @@
-function remakeTeksDenganFormat(teks) {
-  let jamFormat = teks.match(/\b\d{1,2}[:.]\d{2}\b/g);
-
-  if (jamFormat) {
-    jamFormat.forEach((jam) => {
-      let kataJam = jamToKata(jam);
-      teks = teks.replace(new RegExp(jam, "g"), kataJam);
-    });
-  }
-
-  let kataAngka = teks.match(/\b\d+\b/g);
-
-  if (kataAngka) {
-    kataAngka.forEach((angka) => {
-      let kataAngka = angkaToKata(angka);
-      teks = teks.replace(new RegExp(angka, "g"), kataAngka);
-    });
-  }
-  return teks;
-}
-
 function angkaToKata(angka) {
   const kataSatuan = [
     "",
@@ -95,6 +74,7 @@ function angkaToKata(angka) {
   } else if (angka < 100) {
     let puluhan = Math.floor(angka / 10);
     let satuan = angka % 10;
+
     if (satuan === 0) {
       return `${kataPuluhan[puluhan]}`.trim();
     } else {
@@ -103,6 +83,7 @@ function angkaToKata(angka) {
   } else if (angka < 1000) {
     let ratusan = Math.floor(angka / 100);
     let sisaRatusan = angka % 100;
+    
     if (sisaRatusan === 0) {
       return `${kataRatusan[ratusan]}`.trim();
     } else {
@@ -166,7 +147,36 @@ function prosesTeks(teks) {
   return teks;
 }
 
-let teksHasilDiproses;
+// function remake teks formated number
+function remakeTeksDenganFormatAngka(teks) {
+  let kataAngka = teks.match(/\b\d+\b/g);
+
+  if (kataAngka) {
+    kataAngka.forEach((angka) => {
+      let kataAngka = angkaToKata(angka);
+      teks = teks.replace(new RegExp(angka, "g"), kataAngka);
+    });
+  }
+  return teks;
+}
+
+// function remake teks formated time
+function remakeTeksDenganFormatJam(teks){
+  let jamFormat = teks.match(/\b\d{1,2}[:.]\d{2}\b/g);
+
+  if (jamFormat) {
+    jamFormat.forEach((jam) => {
+      let kataJam = jamToKata(jam);
+      teks = teks.replace(new RegExp(jam, "g"), kataJam);
+    });
+  }
+  return teks
+}
+
+// declarate variable global scope
+let finnalTeks;
+
+// event handler
 document
   .getElementById("remakerForm")
   .addEventListener("submit", function (event) {
@@ -174,25 +184,26 @@ document
 
     // Mengambil teks awal dari textarea
     let teksAwal = document.getElementById("teksAwal").value;
-
-    // Memproses teks dan menampilkan hasil
-    let teksHasil = prosesTeks(teksAwal);
-    teksHasilDiproses = remakeTeksDenganFormat(teksHasil);
     let teksHasilElement = document.getElementById("teksHasil");
 
+    // Memproses teks dan menampilkan hasil
+    let teksHasilProsesJam = remakeTeksDenganFormatJam(teksAwal);
+    let teksHasilProsesAngka = remakeTeksDenganFormatAngka(teksHasilProsesJam);
+    finnalTeks = prosesTeks(teksHasilProsesAngka);
+
     // Menampilkan hasil pada elemen
-    teksHasilElement.textContent = teksHasilDiproses; // Menggunakan textContent untuk menghindari potensi XSS
+    teksHasilElement.textContent = finnalTeks; // Menggunakan textContent untuk menghindari potensi XSS
   });
 
 document.getElementById("copyButton").addEventListener("click", function () {
-  if (!teksHasilDiproses) {
+  if (!finnalTeks) {
     console.error("Tidak ada teks yang dapat disalin.");
     alert("Tidak ada teks yang dapat disalin");
     return;
   }
 
   navigator.clipboard
-    .writeText(teksHasilDiproses)
+    .writeText(finnalTeks)
     .then(() => {
       alert("Teks berhasil disalin!");
     })
