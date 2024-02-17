@@ -176,7 +176,7 @@ function remakeTeksDenganFormatJam(teks){
 // declarate variable global scope
 let finnalTeks;
 
-// event handler
+//**  event handler **//
 document
   .getElementById("remakerForm")
   .addEventListener("submit", function (event) {
