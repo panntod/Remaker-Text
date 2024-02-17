@@ -83,7 +83,7 @@ function angkaToKata(angka) {
   } else if (angka < 1000) {
     let ratusan = Math.floor(angka / 100);
     let sisaRatusan = angka % 100;
-    
+
     if (sisaRatusan === 0) {
       return `${kataRatusan[ratusan]}`.trim();
     } else {
@@ -154,7 +154,7 @@ function remakeTeksDenganFormatAngka(teks) {
   if (kataAngka) {
     kataAngka.forEach((angka) => {
       let kataAngka = angkaToKata(angka);
-      teks = teks.replace(new RegExp(angka, "g"), kataAngka);
+      teks = teks.replace(new RegExp(`\\b${angka}\\b`, "g"), kataAngka); 
     });
   }
   return teks;
