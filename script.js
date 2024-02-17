@@ -105,13 +105,14 @@ function angkaToKata(angka) {
       } else {
         return `${kataRibuan[ribuan]} ${angkaToKata(sisaRibuan)}`.trim();
       }
+    } else {
+      if (sisaRibuan === 0) {
+        return `${kataSatuan[ribuan]} ribu`.trim();
+      } else {
+        return `${kataSatuan[ribuan]} ribu ${angkaToKata(sisaRibuan)}`.trim();
+      }
     }
 
-    if (sisaRibuan === 0) {
-      return `${kataSatuan[ribuan]} ribu`.trim();
-    } else {
-      return `${kataSatuan[ribuan]} ribu ${angkaToKata(sisaRibuan)}`.trim();
-    }
   } else {
     return angka;
   }
