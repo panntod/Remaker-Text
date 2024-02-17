@@ -143,6 +143,7 @@ function prosesTeks(teks) {
     .replace(/\(/g, "")
     .replace(/\)/g, "")
     .replace(/\?/g, "")
+    .replace(/\!/g, "")
 
   return teks;
 }
