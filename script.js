@@ -68,7 +68,19 @@ function angkaToKata(angka) {
     "delapan ratus",
     "sembilan ratus",
   ];
-  const kataRibuan = ["", "seribu"];
+  const kataRibuan = [
+    "",
+    "seribu",
+    "dua ribu",
+    "tiga ribu",
+    "empat ribu",
+    "lima ribu",
+    "enam ribu",
+    "tujuh ribu",
+    "delapan ribu",
+    "sembilan ribu",
+    "sepuluh ribu",
+  ];
 
   angka = parseInt(angka);
 
@@ -99,20 +111,11 @@ function angkaToKata(angka) {
   } else if (angka < 10000) {
     let ribuan = Math.floor(angka / 1000);
     let sisaRibuan = angka % 1000;
-    if (ribuan === 1) {
-      if (sisaRibuan === 0) {
-        return `${kataRibuan[ribuan]}`.trim();
-      } else {
-        return `${kataRibuan[ribuan]} ${angkaToKata(sisaRibuan)}`.trim();
-      }
+    if (sisaRibuan === 0) {
+      return `${kataRibuan[ribuan]}`.trim();
     } else {
-      if (sisaRibuan === 0) {
-        return `${kataSatuan[ribuan]} ribu`.trim();
-      } else {
-        return `${kataSatuan[ribuan]} ribu ${angkaToKata(sisaRibuan)}`.trim();
-      }
+      return `${kataRibuan[ribuan]} ${angkaToKata(sisaRibuan)}`.trim();
     }
-
   } else {
     return angka;
   }
@@ -149,7 +152,7 @@ function prosesTeks(teks) {
     .replace(/\;/g, "")
     .replace(/\//g, "")
     .replace(/=/g, " sama dengan")
-    .replace(/\#/g, " shard")
+    .replace(/\#/g, " sharp")
     .replace(/\+/g, " plus")
     .replace(/\&/g, " dan")
     .replace(/\'/g, "")
