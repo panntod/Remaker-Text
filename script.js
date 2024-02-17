@@ -144,6 +144,7 @@ function prosesTeks(teks) {
     .replace(/\&/g, " dan")
     .replace(/\'/g, "")
     .replace(/\"/g, "")
+    .replace(/\:/g, "")
     .replace(/\(/g, "")
     .replace(/\)/g, "")
     .replace(/\?/g, "")
