@@ -130,18 +130,19 @@ function jamToKata(jam) {
 
 function prosesTeks(teks) {
   teks = teks
-    .replace(/,/g, "")
     .replace(/-/g, " ")
-    .replace(/\+/g, " plus")
-    .replace(/=/g, " sama dengan")
+    .replace(/,/g, "")
     .replace(/\;/g, "")
     .replace(/\//g, "")
+    .replace(/=/g, " sama dengan")
     .replace(/\#/g, " shard")
+    .replace(/\+/g, " plus")
+    .replace(/\&/g, " dan")
     .replace(/\'/g, "")
     .replace(/\"/g, "")
     .replace(/\(/g, "")
     .replace(/\)/g, "")
-    .replace(/\&/g, " dan")
+    .replace(/\?/g, "")
 
   return teks;
 }
