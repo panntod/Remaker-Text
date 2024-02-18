@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Replacement</title>
+
+    <!-- Tautan Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Replacement Text</h1>
+        <hr>
+
+        <p id="textToReplace">
+            Saya pandhu arya munjalindra dari kelas 11 rpl 1. saya sedang belajar pengembangan bot sederhana untuk
+            mempermudah pekerjaan manusia, saat saya kelas 11 saya berminat untuk menjadi quality assurance dan juga
+            developer. namun minat saya adalah menjadi seorang miliader
+        </p>
+
+        <div class="my-2">
+            <label for="findText">Cari kata:</label>
+            <input type="text" id="findText" class="form-control" placeholder="Masukkan kata yang digantikan">
+        </div>
+        
+        <div class="my-2">
+            <label for="replacementInput">Ganti dengan:</label>
+            <input type="text" id="replacementInput" class="form-control" placeholder="Masukkan kata yang digantikan">
+        </div>
+        
+        <button onclick="findAllText()" class="btn btn-primary mt-2">Cari Semua</button>
+        <button onclick="replaceAllText()" class="btn btn-warning mt-2">Ganti Semua</button>
+    </div>
+
+    <!-- Tautan Bootstrap JavaScript (wajib untuk beberapa fitur Bootstrap) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function findAllText(){
+            let originalText = document.getElementById("textToReplace").innerText;
+            let findWord = document.getElementById("findText").value;
+    
+            let regex = new RegExp("\\b" + findWord + "\\b", 'g');
+            let newText = originalText.replace(regex, '<span style="background-color: yellow;">' + findWord + '</span>');
+    
+            document.getElementById("textToReplace").innerHTML = newText;
+        }
+
+        function replaceAllText() {
+            let originalText = document.getElementById("textToReplace").innerText;
+            let findWord = document.getElementById("findText").value;
+            let replaceText = document.getElementById("replacementInput").value; 
+
+            let regex = new RegExp("\\b" + findWord + "\\b", 'g');
+            let newText = originalText.replace(regex, replaceText);
+
+            document.getElementById("textToReplace").innerHTML = newText;
+        }
+    </script>
+</body>
+
+</html>
