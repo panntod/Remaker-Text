@@ -134,6 +134,7 @@ function prosesTeks(teks) {
     .replace(/\//g, "")
     .replace(/=/g, " sama dengan")
     .replace(/\#/g, " sharp")
+    .replace(/\%/g, " persen")
     .replace(/\+/g, " plus")
     .replace(/\&/g, " dan")
     .replace(/\'/g, "")
