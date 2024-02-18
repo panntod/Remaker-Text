@@ -26,3 +26,45 @@ Dalam repositori ini, terdapat bot yang dirancang untuk menyusun kembali teks ya
 | Mencari | Mampu mencari kata yang sesuai dengan inputan | `Non Active` |
 | Merubah | Mampu merubah kata yang dicari dengan kata sesuai dengan inputan | `Non Active` |
 
+
+## Documentation  
+
+### Symbol
+```js
+function prosesTeks(teks) {
+  teks = teks
+    .replace(/-/g, " ")
+    .replace(/,/g, "")
+    .replace(/\;/g, "")
+    .replace(/\//g, "")
+    .replace(/=/g, " sama dengan")
+    .replace(/\#/g, " sharp")
+    .replace(/\%/g, " persen")
+    .replace(/\+/g, " plus")
+    .replace(/\&/g, " dan")
+    .replace(/\'/g, "")
+    .replace(/\"/g, "")
+    .replace(/\:/g, "")
+    .replace(/\(/g, "")
+    .replace(/\)/g, "")
+    .replace(/\?/g, "")
+    .replace(/\!/g, "");
+
+  return teks;
+}
+```
+### Jam
+```js
+// function remake teks formated time
+function remakeTeksDenganFormatJam(teks){
+  let jamFormat = teks.match(/\b\d{1,2}[:.]\d{2}\b/g);
+
+  if (jamFormat) {
+    jamFormat.forEach((jam) => {
+      let kataJam = jamToKata(jam);
+      teks = teks.replace(new RegExp(jam, "g"), kataJam);
+    });
+  }
+  return teks
+}
+```
