@@ -33,22 +33,22 @@ Dalam repositori ini, terdapat bot yang dirancang untuk menyusun kembali teks ya
 ```js
 function prosesTeks(teks) {
   teks = teks
-    .replace(/-/g, " ")
-    .replace(/,/g, "")
-    .replace(/\;/g, "")
-    .replace(/\//g, "")
-    .replace(/=/g, " sama dengan")
-    .replace(/\#/g, " sharp")
-    .replace(/\%/g, " persen")
-    .replace(/\+/g, " plus")
-    .replace(/\&/g, " dan")
-    .replace(/\'/g, "")
-    .replace(/\"/g, "")
-    .replace(/\:/g, "")
-    .replace(/\(/g, "")
-    .replace(/\)/g, "")
-    .replace(/\?/g, "")
-    .replace(/\!/g, "");
+    .replace(/-/g, " ")                 // Merubah - menjadi spasi
+    .replace(/,/g, "")                  // Menghapus tanda koma
+    .replace(/\;/g, "")                 // Menghapus semi-colon
+    .replace(/\//g, "")                 // Menghapus garis miring
+    .replace(/=/g, " sama dengan")      // Mengganti = menjadi sama dengan
+    .replace(/\#/g, " sharp")           // Mengganti # menjadi sharp
+    .replace(/\%/g, " persen")          // Mengganti % menjadi percent
+    .replace(/\+/g, " plus")            // Mengganti + menjadi Plus
+    .replace(/\&/g, " dan")             // Mengganti $ menjadi dan
+    .replace(/\'/g, "")                 // Menghapus petik satu
+    .replace(/\"/g, "")                 // Menghapus petik dua
+    .replace(/\:/g, "")                 // Menghapus titik dua
+    .replace(/\(/g, "")                 // Menghapus buka kurung
+    .replace(/\)/g, "")                 // Menghapus tutup kurung
+    .replace(/\?/g, "")                 // Menghapus tanda tanya
+    .replace(/\!/g, "");                // menghapus tanda seru
 
   return teks;
 }
