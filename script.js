@@ -97,6 +97,30 @@ function angkaToKata(angka) {
     } else {
       return `${kataRibuan[ribuan]} ${angkaToKata(sisaRibuan)}`.trim();
     }
+  } else if (angka < 100000) {
+    let puluhanRibuan = Math.floor(angka / 10000);
+    let sisaPuluhanRibuan = angka % 10000;
+    if (sisaPuluhanRibuan === 0) {
+      return `${kataPuluhan[puluhanRibuan]} ribu`.trim();
+    } else {
+      return `${kataPuluhan[puluhanRibuan]} ribu ${angkaToKata(sisaPuluhanRibuan)}`.trim();
+    }
+  } else if (angka < 1000000) {
+    let ratusanRibuan = Math.floor(angka / 100000);
+    let sisaRatusanRibuan = angka % 100000;
+    if (sisaRatusanRibuan === 0) {
+      return `${kataRatusan[ratusanRibuan]} ribu`.trim();
+    } else {
+      return `${kataRatusan[ratusanRibuan]} ribu ${angkaToKata(sisaRatusanRibuan)}`.trim();
+    }
+  }  else if (angka < 10000000) {
+    let ratusanRibuan = Math.floor(angka / 1000000);
+    let sisaRatusanRibuan = angka % 1000000;
+    if (sisaRatusanRibuan === 0) {
+      return `${kataSatuan[ratusanRibuan]} juta`.trim();
+    } else {
+      return `${kataSatuan[ratusanRibuan]} juta ${angkaToKata(sisaRatusanRibuan)}`.trim();
+    }
   } else {
     return angka;
   }
