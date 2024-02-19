@@ -9,12 +9,12 @@ Dalam repositori ini, terdapat bot yang dirancang untuk menyusun kembali teks ya
 
 - Menconvert angka-to-kata 📝
 - Menconvert jam-to-kata 🕒
-- Mereplace symbol ♻️
-- Find and Replace All (incoming) 🔍🔄 
 - Menconvert rupiah-to-kata 💸
+- Mereplace symbol ♻️
 - Penggunaan RegExp 🧩
+- Find and Replace All 🔍🔄 
 
-## Version 2.0.1
+## Version 2.1.1
 
 | Feature | Deskripsi | Status | 
 | ---| ---|--- |
@@ -22,9 +22,9 @@ Dalam repositori ini, terdapat bot yang dirancang untuk menyusun kembali teks ya
 | Merubah Jam | Mampi mendefinisikan jam sesuai dengan pemisah yaitu `/[:.]/`, lalu merubah nya menjadi kata  | `Active` | 
 | Mereplace Simbol| Mampu mendefinisikan symbol yang muncul, lalu merubah nya sesuai dengan kebutuhan. Untuk code selengkap nya bisa dilihat pada `documentation` | `Active` |
 | Copy Clipboard | Mampu mengcopy teks yang sudah di proses ke papan clipboard dengan menge-click icon clipboar , untuk memudahkan pengguna | `Active` |
-| Merubah Rupiah | Mampu mendefinisikan Rupiah dengan format `Rp\d+(?:\.\d{3})*` atau tiga angka dibelakang titik | `Active` |
-| Mencari | Mampu mencari kata yang sesuai dengan inputan | `Deactive` |
-| Merubah | Mampu merubah kata yang dicari dengan kata sesuai dengan inputan | `Deactive` |
+| Merubah Rupiah | Mampu mendefinisikan Rupiah dengan format `Rp\d+(?:\.\d{3})*` atau tiga angka dibelakang titik | `Deactive` |
+| Mencari | Mampu mencari kata yang sesuai dengan inputan | `Active` |
+| Merubah | Mampu merubah kata yang dicari dengan kata sesuai dengan inputan | `Active` |
 
 
 ## Documentation  
