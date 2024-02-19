@@ -92,14 +92,26 @@ function angkaToKata(angka) {
   } else if (angka < 10000) {
     let ribuan = Math.floor(angka / 1000);
     let sisaRibuan = angka % 1000;
+
     if (sisaRibuan === 0) {
       return `${kataRibuan[ribuan]}`.trim();
     } else {
       return `${kataRibuan[ribuan]} ${angkaToKata(sisaRibuan)}`.trim();
     }
+  } else if(angka < 20000) {
+    let belasanRibuan = Math.floor((angka - 10000) / 1000);
+    console.log(belasanRibuan);
+    let sisaBelasanRibuan = angka % 1000;
+
+    if (sisaBelasanRibuan === 0) {
+      return `${kataBelasan[belasanRibuan]} ribu`.trim();
+    } else {
+      return `${kataBelasan[belasanRibuan]} ribu ${angkaToKata(sisaBelasanRibuan)}`.trim();
+    }
   } else if (angka < 100000) {
     let puluhanRibuan = Math.floor(angka / 10000);
     let sisaPuluhanRibuan = angka % 10000;
+
     if (sisaPuluhanRibuan === 0) {
       return `${kataPuluhan[puluhanRibuan]} ribu`.trim();
     } else {
@@ -108,6 +120,7 @@ function angkaToKata(angka) {
   } else if (angka < 1000000) {
     let ratusanRibuan = Math.floor(angka / 100000);
     let sisaRatusanRibuan = angka % 100000;
+
     if (sisaRatusanRibuan === 0) {
       return `${kataRatusan[ratusanRibuan]} ribu`.trim();
     } else {
@@ -116,6 +129,7 @@ function angkaToKata(angka) {
   }  else if (angka < 10000000) {
     let ratusanRibuan = Math.floor(angka / 1000000);
     let sisaRatusanRibuan = angka % 1000000;
+
     if (sisaRatusanRibuan === 0) {
       return `${kataSatuan[ratusanRibuan]} juta`.trim();
     } else {
