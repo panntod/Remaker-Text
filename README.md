@@ -14,18 +14,18 @@ Dalam repositori ini, terdapat bot yang dirancang untuk menyusun kembali teks ya
 - Penggunaan RegExp 🧩
 - Find and Replace All 🔍🔄  
 
-## Version 2.2.1
+## Version 2.3.2
 
 | Feature | Deskripsi | Status | Link |
 | --- | --- | --- | --- |
 | Merubah Angka | Mampu merubah angka mulai dari 1 - 1000000, penambahan boundary supaya menconvert per array yang muncul, untuk menghindari kesalahan convert   | `Active` | [Link](https://panntod.github.io/Remaker-Text/) |
-| Merubah Jam | Mampi mendefinisikan jam sesuai dengan pemisah yaitu `/[:.]/`, lalu merubah nya menjadi kata  | `Active` |  [Link](https://panntod.github.io/Remaker-Text/) |
+| Merubah Jam | Mampu mendefinisikan jam sesuai dengan pemisah yaitu `/[:.]/`, lalu merubah nya menjadi kata  | `Active` |  [Link](https://panntod.github.io/Remaker-Text/) |
 | Mereplace Simbol| Mampu mendefinisikan symbol yang muncul, lalu merubah nya sesuai dengan kebutuhan. Untuk code selengkap nya bisa dilihat pada `documentation` | `Active` | [Link](https://panntod.github.io/Remaker-Text/) |
 | Copy Clipboard | Mampu mengcopy teks yang sudah di proses ke papan clipboard dengan menge-click icon clipboar , untuk memudahkan pengguna | `Active` | [Link](https://panntod.github.io/Remaker-Text/) |
 | Merubah Rupiah | Mampu mendefinisikan Rupiah dengan format `Rp\d+(?:\.\d{3})*` atau tiga angka dibelakang titik | `Deactive` | - |
 | Mencari | Mampu mencari kata yang sesuai dengan inputan | `Active` | [Link](https://panntod.github.io/Remaker-Text/find) |
 | Merubah | Mampu merubah kata yang dicari dengan kata sesuai dengan inputan | `Active` | [Link](https://panntod.github.io/Remaker-Text/find) |
-| Merubah Spasi | Mampu merubah spasi menjadi enter | `Active` | [Link](https://panntod.github.io/Remaker-Text/remakeEnter) |
+| Merubah Spasi | Mampu merubah spasi menjadi enter | `Active` | [Link](https://panntod.github.io/Remaker-Text/enter/) |
 
 
 ## Documentation  
