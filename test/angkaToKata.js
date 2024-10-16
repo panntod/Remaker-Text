@@ -130,5 +130,3 @@ function remakeTeksDenganFormatAngka(teks) {
 // Contoh pemanggilan fungsi
 // const teksHasil = remakeTeksDenganFormatAngka("saya pandhu berusia 9 tahun dan sekarang memiliki gaji 100 juta per 2 bulan, / hai 1029 21 32 dan 1 21 122 321");
 // console.log(teksHasil);
-
-module.exports = angkaToKata
