@@ -1,4 +1,4 @@
-# Rekamer Teks 🚀
+# Remaker Teks 🚀
 
 ## Deskripsi
 
@@ -69,3 +69,7 @@ function remakeTeksDenganFormatJam(teks){
   return teks
 }
 ```
+
+## 🛡️ License
+
+This project is licensed under the ISC License. See the [LICENSE](LICENSE) file for details.
