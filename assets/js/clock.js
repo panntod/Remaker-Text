@@ -1,3 +1,5 @@
+import { angkaToKata } from "./number.js";
+
 function jamToKata(jam) {
   let [jamStr, menitStr] = jam.split(/[:.]/);
   let jamAngka = parseInt(jamStr);
