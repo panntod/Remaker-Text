@@ -1,4 +1,4 @@
-function angkaToKata(angka) {
+export function angkaToKata(angka) {
   const kataSatuan = [
     "",
     "satu",
